@@ -13,12 +13,19 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [PFObject]()
+//    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+
+//        refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(onRefresh), forControlEvents: .valueChanged)
+//        scrollView.insertSubview(refreshControl, at: 0)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -38,6 +45,22 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
+    
+//    @objc func onRefresh() {
+//        // refresh tableView that just created
+//        super.viewDidAppear(true)
+//        
+//        //query
+//        let query = PFQuery(className:"Posts")
+//        query.includeKey("author") // fetch object
+//        query.limit = 20
+//        
+//        query.findObjectsInBackground { (posts,error) in
+//            if posts != nil {
+//                self.posts = posts!
+//                self.tableView.reloadData()
+//            }
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
