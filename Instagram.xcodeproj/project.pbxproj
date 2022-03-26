@@ -20,6 +20,8 @@
 		F6A0C9A527EEBEBA006C8CAC /* InstagramUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A0C9A427EEBEBA006C8CAC /* InstagramUITestsLaunchTests.swift */; };
 		F6E6274C27EEC247008A656D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E6274B27EEC247008A656D /* LoginViewController.swift */; };
 		F6E6274E27EEC26F008A656D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E6274D27EEC26F008A656D /* FeedViewController.swift */; };
+		F6E6275027EECE8A008A656D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E6274F27EECE8A008A656D /* CameraViewController.swift */; };
+		F6E6275227EEDD7A008A656D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E6275127EEDD7A008A656D /* PostCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		F6A0C9A427EEBEBA006C8CAC /* InstagramUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F6E6274B27EEC247008A656D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F6E6274D27EEC26F008A656D /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		F6E6274F27EECE8A008A656D /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		F6E6275127EEDD7A008A656D /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,8 @@
 				F6A0C98127EEBEB8006C8CAC /* AppDelegate.swift */,
 				F6A0C98327EEBEB8006C8CAC /* SceneDelegate.swift */,
 				F6A0C98727EEBEB8006C8CAC /* Main.storyboard */,
+				F6E6275127EEDD7A008A656D /* PostCell.swift */,
+				F6E6274F27EECE8A008A656D /* CameraViewController.swift */,
 				F6E6274B27EEC247008A656D /* LoginViewController.swift */,
 				F6E6274D27EEC26F008A656D /* FeedViewController.swift */,
 				F6A0C98A27EEBEBA006C8CAC /* Assets.xcassets */,
@@ -410,9 +416,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6E6274C27EEC247008A656D /* LoginViewController.swift in Sources */,
+				F6E6275027EECE8A008A656D /* CameraViewController.swift in Sources */,
 				F6A0C98227EEBEB8006C8CAC /* AppDelegate.swift in Sources */,
 				F6E6274E27EEC26F008A656D /* FeedViewController.swift in Sources */,
 				F6A0C98427EEBEB8006C8CAC /* SceneDelegate.swift in Sources */,
+				F6E6275227EEDD7A008A656D /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
