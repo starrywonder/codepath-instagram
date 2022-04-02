@@ -16,8 +16,8 @@ The following **required** functionality is completed:
 
 The following **bonus** features are implemented:
 
-- [ ] User can pull to refresh. (1pt)
-- [ ] User can load past posts infinitely. (2pts)
+- [x] User can pull to refresh. (1pt)
+- [ ] User can load past posts infinitely. (2pts) (??? not tested)
 
 ## Video Walkthrough
 
