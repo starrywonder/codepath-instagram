@@ -8,12 +8,14 @@
 import UIKit
 import Parse
 
+
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [PFObject]()
-//    var refreshControl: UIRefreshControl!
+    let refreshControl = UIRefreshControl()
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +23,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-
-//        refreshControl = UIRefreshControl()
-//        refreshControl.addTarget(self, action: #selector(onRefresh), forControlEvents: .valueChanged)
-//        scrollView.insertSubview(refreshControl, at: 0)
         
         // Do any additional setup after loading the view.
+        refreshControl.addTarget(self, action: #selector(loadPosts), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,21 +46,43 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-//    @objc func onRefresh() {
-//        // refresh tableView that just created
-//        super.viewDidAppear(true)
-//        
-//        //query
-//        let query = PFQuery(className:"Posts")
-//        query.includeKey("author") // fetch object
-//        query.limit = 20
-//        
-//        query.findObjectsInBackground { (posts,error) in
-//            if posts != nil {
-//                self.posts = posts!
-//                self.tableView.reloadData()
-//            }
-//    }
+    @objc func loadPosts() {
+        // refresh tableView that just created
+        super.viewDidAppear(true)
+        
+        //query
+        let query = PFQuery(className:"Posts")
+        query.includeKey("author") // fetch object
+        query.limit = 20
+        
+        query.findObjectsInBackground { (posts,error) in
+            if posts != nil {
+                self.posts = posts!
+                self.tableView.reloadData()
+            }
+        }
+        
+        // stops refreshing
+        self.refreshControl.endRefreshing()
+    }
+    
+    func loadMorePosts() {
+        //query
+        let query = PFQuery(className:"Posts")
+        query.includeKey("author") // fetch object
+        query.limit = posts.count + 20
+        
+        query.findObjectsInBackground { (posts,error) in
+            if posts != nil {
+                self.posts = posts!
+                self.tableView.reloadData()
+            }
+        }
+        
+        // stops refreshing
+        self.refreshControl.endRefreshing()
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -85,6 +107,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
+    
+    /**
+     Updates feed for infinite scrolling.
+     */
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == posts.count {
+            loadMorePosts()
+        }
+    }
+    
+ 
     
 
     /*
